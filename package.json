@@ -2,6 +2,7 @@
   "name": "weather_by_city",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://orielbenmoshe.github.io/weather_by_city",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -13,6 +14,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.27.2",
+    "gh-pages": "^3.2.3",
     "immer": "^9.0.12",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
