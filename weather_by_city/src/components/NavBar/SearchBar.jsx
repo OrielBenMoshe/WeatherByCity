@@ -52,7 +52,6 @@ export default function SearchBar(props) {
   }, [inputValue]);
   
   useEffect(() => {
-    console.log("autocomplete:", autocomplete);
     if (autocomplete.data) {
       const data = autocomplete.data;
       const editedData = data.map((item, key) => {
@@ -82,10 +81,9 @@ export default function SearchBar(props) {
         loading={true}
         id="combo-box-demo"
         onChange={(event, newValue) => {
-          console.log("newValue:", newValue);
           setValue(newValue);
           navigate(`/Home?locKey=${newValue.locKey}&locName=${newValue.label}`, { replace: true })
-          setValue("");
+          window.location.reload();
         }}
         onInputChange={(event, newInputValue) => {
           setInputValue(newInputValue);

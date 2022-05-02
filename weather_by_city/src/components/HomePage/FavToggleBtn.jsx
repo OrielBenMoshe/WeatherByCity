@@ -16,7 +16,6 @@ export default function FavToggleBtn(props) {
   }, [props.location])
   
   useEffect(() => {
-    console.log("selected:", selected);
     if (selected) {
       if (localStorage.getItem("favoritesLocations")) {
         const prevFav = JSON.parse(localStorage.getItem("favoritesLocations"));
@@ -27,7 +26,6 @@ export default function FavToggleBtn(props) {
         localStorage.setItem("favoritesLocations", JSON.stringify([props.location]));
       }
     } else if (localStorage.getItem("favoritesLocations") && props.location) {
-      console.log("else");
       const prevFav = JSON.parse(localStorage.getItem("favoritesLocations"));
       const filteredArr = prevFav.filter((item) => (item.locKey !== props.location.locKey));
       localStorage.setItem("favoritesLocations", JSON.stringify(filteredArr));

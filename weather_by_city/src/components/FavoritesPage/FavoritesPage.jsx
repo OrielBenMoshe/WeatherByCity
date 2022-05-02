@@ -7,18 +7,18 @@ export default function FavoritesPage() {
   const [isError, setIsError] = useState(false);
 
   const handleIsError = (response) => {
-    console.log("response:", response);
     setIsError(response);
   }
 
   const removeCard = (locationKey) => {
     const prevFav = JSON.parse(localStorage.getItem("favoritesLocations"));
-    const filteredArr = prevFav.filter((item) => (item.key != locationKey));
+    const filteredArr = prevFav.filter((item) => (item.locKey != locationKey));
     localStorage.setItem("favoritesLocations", JSON.stringify(filteredArr));
     setFavoritesArr(filteredArr);
   }
 
   useEffect(() => {
+    setIsError(false);
     if (localStorage.getItem("favoritesLocations")) {
       const arr = JSON.parse(localStorage.getItem("favoritesLocations"));
       setFavoritesArr(arr);

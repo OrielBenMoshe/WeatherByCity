@@ -11,17 +11,15 @@ import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import useLocationWeather from '../../hooks/useLocationWeather';
 
 export default function CityCard(props) {
-  console.log("props.location:", props.location);
   const data = useLocationWeather(props.location.locKey);
   const [weather, setWeather] = useState()
   
-  const removeCard = (e) => {
-    props.remove(props.location.locKey)
+  const handleRemoveCard = (e) => {
+    props.removeCard(props.location.locKey)
   }
 
   useEffect(() => {
     if (data.data) {
-      console.log("data:",data);
       setWeather(data.data[0])
     }
     data.isSuccess ? props.isError(false) : props.isError(true);
@@ -31,7 +29,7 @@ export default function CityCard(props) {
     <Box sx={{ minWidth: 275 }} className="CityCard" >
       <Card elevation={1}>
         <CardContent>
-          <a href="#" className="remove-btn" onClick={(e) => removeCard(e)} >
+          <a href="#" className="remove-btn" onClick={(e) => handleRemoveCard(e)} >
             <CloseRoundedIcon />
           </a>
           <header>

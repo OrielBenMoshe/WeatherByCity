@@ -36,7 +36,6 @@ export default function HomePage() {
     }
 
     useEffect(() => {
-        console.log("queries:", queries);
         queries.locKey 
             ? setLocation(queries)
             : setLocation({ locKey: "215854", locName: "Tel-Aviv" });
@@ -59,6 +58,7 @@ export default function HomePage() {
         // console.log("forecast:", forecast.data);
         forecast && forecast.data && 
             setForecastData( editForecastData(forecast.data.DailyForecasts) );
+        forecast.isSuccess ? setIsError(false) : setIsError(true);
     }, [forecast])
 
     return (
