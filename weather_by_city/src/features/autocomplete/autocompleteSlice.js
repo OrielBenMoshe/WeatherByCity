@@ -7,14 +7,14 @@ export const getAutocomplete = createAsyncThunk(
   "autocomlete/getData",
   async (arg, { rejectWithValue }) => {
     try {
-        console.log('getAutocomplete');
       const url = process.env.REACT_APP_AUTOCOMLETE;
       const apiKey = process.env.REACT_APP_APIKEY;
       const { data } = await axios.get(`${url}?apikey=${apiKey}&q=${arg}`);
-      console.log("data:", data);
+
       return data;
     } catch (error) {
-      rejectWithValue(error.response.data);
+      console.log(error);
+      return rejectWithValue(error.response.data);
     }
   }
 );

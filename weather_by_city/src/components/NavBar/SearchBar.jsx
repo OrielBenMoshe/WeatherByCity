@@ -45,7 +45,7 @@ export default function SearchBar(props) {
   const navigate = useNavigate();
 
   useEffect(() => { 
-    console.log("inputValue:", inputValue);
+    // console.log("inputValue:", inputValue);
     if (inputValue.length === 3) {
       dispatch(getAutocomplete(inputValue));
     } 
@@ -58,7 +58,7 @@ export default function SearchBar(props) {
       const editedData = data.map((item, key) => {
         return {
           label: item.LocalizedName,
-          key: item.Key
+          locKey: item.Key
         }
       });
       setList(editedData);
@@ -66,7 +66,7 @@ export default function SearchBar(props) {
   }, [autocomplete]);
   
   useEffect(() => {
-    console.log("list:", list);
+    // console.log("list:", list);
   }, [list]);
   
   
@@ -84,7 +84,8 @@ export default function SearchBar(props) {
         onChange={(event, newValue) => {
           console.log("newValue:", newValue);
           setValue(newValue);
-          navigate(`/Home?locKey=${newValue.key}&locName=${newValue.label}`)
+          navigate(`/Home?locKey=${newValue.locKey}&locName=${newValue.label}`, { replace: true })
+          setValue("");
         }}
         onInputChange={(event, newInputValue) => {
           setInputValue(newInputValue);

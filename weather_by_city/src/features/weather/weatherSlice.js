@@ -6,8 +6,6 @@ export const getWeather = createAsyncThunk(
   "weather/getData",
   async (locationKey, { rejectWithValue }) => {
     try {
-      console.log('getWeather');
-      console.log("locationKey:", locationKey);
       const url = process.env.REACT_APP_WEATHER;
       const apiKey = process.env.REACT_APP_APIKEY;
       
@@ -15,8 +13,7 @@ export const getWeather = createAsyncThunk(
       return data;
     } catch (error) {
       console.log(error);
-      rejectWithValue(error.response.data);
-      return error;
+      return rejectWithValue(error.response.data);
     }
   }
 );

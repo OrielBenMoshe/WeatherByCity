@@ -9,6 +9,10 @@ export default function useLocationWeather(locationKey) {
   useEffect(() => {
     dispatch(getWeather(locationKey));
   }, [])
+  
+  useEffect(() => {
+    weather.data[0] && console.log("useLocationWeather:",  weather.data[0].Temperature.Metric );
+  }, [weather])
     
   return weather;
   

@@ -16,7 +16,7 @@ export default function CityCard(props) {
   const [weather, setWeather] = useState()
   
   const removeCard = (e) => {
-    props.remove(props.location.key)
+    props.remove(props.location.locKey)
   }
 
   useEffect(() => {
@@ -24,7 +24,8 @@ export default function CityCard(props) {
       console.log("data:",data);
       setWeather(data.data[0])
     }
-  }, [data])
+    data.isSuccess ? props.isError(false) : props.isError(true);
+  }, [])
 
   return (
     <Box sx={{ minWidth: 275 }} className="CityCard" >

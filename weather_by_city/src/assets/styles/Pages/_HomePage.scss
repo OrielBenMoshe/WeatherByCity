@@ -21,6 +21,7 @@
     }
     .current-weather-container {
         @include flex(flex-start, center);
+        gap: 32px;
         .temperature {
             font-size: 64px;
             font-weight: 600;

@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage/HomePage";
 import FavoritesPage from "./components/FavoritesPage/FavoritesPage";
 
 function App() {
+
   return (
     <BrowserRouter>
       <div className="App">
